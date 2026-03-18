@@ -1,0 +1,323 @@
+/* RESET GLOBAL */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* ================= HEADER / MENU ================= */
+
+.topo {
+  background-color: black;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  height: 30px;
+}
+
+.header h1 {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  color: white;
+  cursor: pointer;
+}
+
+/* LOGO */
+.letra-X {
+  color: rgb(170, 219, 214);
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.letra-fly {
+  font-size: 22px;
+  margin-left: 2px;
+}
+
+/* MENU */
+#menu-links {
+  display: flex;
+  margin-left: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+#menu-links a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  font-size: 14px;
+}
+
+#menu-links a:hover {
+  text-decoration: underline;
+}
+
+.header:hover #menu-links {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ================= CONTEÚDO ================= */
+
+.conteudo {
+  min-height: calc(100vh - 30px);
+}
+
+/* ================= PÁGINAS ================= */
+
+/* INÍCIO */
+body.inicio {
+  background-image: url("../imagens/drone.0.webp");
+  background-size: cover;
+  background-position-y: 20px;
+  background-repeat: no-repeat;
+}
+/* Controlador */
+body.Controlador {
+  background: rgb(225, 225, 225);
+  background-image: url("../imagens/controlo-removebg-preview.png");
+  background-size: 700px;
+  background-repeat:no-repeat;
+  background-position: center;
+}
+/* TAREFAS */
+body.Tarefas {
+  background: rgb(225, 225, 225);
+}
+/* SOBRE */
+body.Sobre {
+  background: rgb(225, 225, 225);
+}
+
+/*=====================Sobre================================*/
+
+:root {
+    --primary-color: #3498db;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+body {
+    background: linear-gradient(135deg, #1e1e2f, #2d2d44); /* Fundo escuro para destacar o vidro */
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.glass-sidebar {
+    position: fixed;
+    right: 10px; /* Afastada da borda para parecer flutuante */
+    top: 40%;
+    transform: translateY(-40%);
+    width: 100px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px); /* Efeito de vidro jateado */
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.logo-item img {
+    width: 40px;
+    filter: drop-shadow(0 0 5px var(--primary-color));
+    margin-bottom: 10px;
+}
+
+.separator {
+    width: 50%;
+    border: 0.5px solid var(--glass-border);
+    margin: 10px 0;
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    margin: 15px 0;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Efeito de Reação */
+.nav-btn:hover {
+    transform: scale(1.3);
+    text-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Tooltip (A janelinha que aparece à esquerda) */
+.nav-btn::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%) scale(0.5);
+    background: white;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.nav-btn:hover::before {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+/*  EXTRA  */
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.conteudo-ativo {
+    animation: slideIn 0.5s ease forwards;
+}
+
+/* EXTRA EXTRA*/
+
+/* Sub-janela da Bateria (Preview) */
+.preview-box {
+    position: fixed;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: -10px 0 20px rgba(0,0,0,0.2);
+    display: none; /* Escondida */
+    width: 180px;
+    border-left: 5px solid #2ecc71; /* Verde bateria */
+    z-index: 100;
+}
+
+/* Painel Principal (Abre no Clique) */
+.painel-conteudo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100% - 100px); /* Ocupa tudo menos a barra lateral */
+    height: 100vh;
+    background: #ffffff;
+    z-index: 50;
+    display: none; /* Escondido por padrão */
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+#fechar-painel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+/* ---------------------------MAPAS----------------------------- */
+body.Mapas {
+  margin: 0;
+  background: #111;
+}
+
+/* área abaixo do header */
+.main-content {
+  display: flex;
+  justify-content: center;
+
+  padding-top: 120px;
+
+  background: radial-gradient(circle at center, #3a3a3a, #1a1a1a);
+  min-height: 100vh;
+}
+
+/* círculo exterior (borda com gradiente) */
+.map-container {
+  width: 600px;
+  height: 600px;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  padding: 5px;
+
+  /* gradiente mais natural */
+  background: linear-gradient(
+    145deg,
+    #6e6e6e,
+    #2a2a2a 40%,
+    #000
+  );
+
+  /* profundidade exterior */
+  box-shadow: 
+    0 20px 60px rgba(0,0,0,0.6),
+    0 0 0 2px rgba(255,255,255,0.05);
+
+  box-sizing: border-box;
+
+  position: relative;
+}
+.map-container::before {
+  animation: brilho 6s linear infinite;
+}
+
+@keyframes brilho {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* conteúdo interno (onde fica o planeta) */
+.inner {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  background: rgb(0, 0, 0);
+
+  position: relative;
+
+  /* sombra interna mais natural */
+  box-shadow: inset 0 0 40px rgba(101, 100, 100, 0.6);
+}
+
+/* planeta */
+#earth {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 2s ease-in-out, opacity 1s;
+}
+
+/* mapa (para usar depois) */
+#map {
+  width: 100%;
+  height: 100%;
+  display: none;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
