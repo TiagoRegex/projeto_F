@@ -12,6 +12,7 @@ const subJanela = document.getElementById('sub-janela-bateria');
 const painel = document.getElementById('painel-principal');
 const conteudo = document.getElementById('conteudo-dinamico');
 
+if (bts){
 bts.forEach(btn => {
     // Evento de Mouse Over
     btn.addEventListener('mouseenter', () => {
@@ -29,7 +30,7 @@ bts.forEach(btn => {
         subJanela.style.display = 'none';
     });
 });
-
+}
 // Função para o Clique (Firma a janela maior)
 function abrirPainel(tipo) {
     painel.style.display = 'block';
@@ -51,7 +52,8 @@ function fecharPainel() {
 const earth = document.getElementById("earth");
 const mapDiv = document.getElementById("map");
 
-earth.addEventListener("click", () => {
+
+if (earth){earth.addEventListener("click", () => {
 
   // 1. girar + zoom
   earth.style.transform = "scale(2) rotate(720deg)";
@@ -72,7 +74,8 @@ earth.addEventListener("click", () => {
     earth.style.opacity = "0";
     mapDiv.style.opacity = "1";
   }, 2500);
-});
+});}
+
 /*
 const earth = document.getElementById("earth");
 const mapDiv = document.getElementById("map");
