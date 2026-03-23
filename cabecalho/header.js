@@ -1,4 +1,4 @@
-fetch("header.html")
+fetch("/Projeto_F/cabecalho/header.html")
   .then(res => res.text())
   .then(html => {
     document.getElementById("header-container").innerHTML = html;
