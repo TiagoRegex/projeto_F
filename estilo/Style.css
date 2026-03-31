@@ -101,7 +101,7 @@ body.Controlador {
 
 body.Controlador .conteudo {
     background-image: url("../imagens/controlador.png");
-    background-size: 600px; 
+    background-size: 700px; 
     background-repeat: no-repeat;
     background-position: center;
     filter: drop-shadow(0 0 15px rgba(199, 219, 233, 0.3));
