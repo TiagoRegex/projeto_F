@@ -6,6 +6,7 @@
   <title>Início - XFly</title>
 
   <link rel="stylesheet" href="../estilo/Style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 
 <body class="Mapas">
@@ -14,16 +15,31 @@
 
   <div class="main-content">
     <div class="map-container">
-      
       <div class="inner">
         <img id="earth" src="https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg">
         <div id="map"></div>
       </div>
-
     </div>
   </div>
 
   <main class="conteudo"></main>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+  // Esta função é chamada pelo header.js após a animação
+  function initMap() {
+    // Coordenadas de Portugal como exemplo [lat, lng], zoom 6
+    var map = L.map('map').setView([39.5, -8.5], 6);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker([39.5, -8.5]).addTo(map)
+      .bindPopup('XFly Drone Base')
+      .openPopup();
+  }
+</script>
 
   <script src="../cabecalho/header.js"></script>
 </body>

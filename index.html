@@ -4,14 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Início - XFly</title>
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
     <link rel="stylesheet" href="estilo/Style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
+
 <body class="inicio">
+
     <div id="header-container"></div>
+
+    <nav class="glass-sidebar">
+        <div class="menu-items">
+            <button class="nav-btn" 
+                    data-tooltip="Bateria" 
+                    data-preview="Saúde: 95% | 25min restantes"
+                    onclick="abrirPainel('Bateria')">🔋</button>
+
+            <button class="nav-btn" 
+                    data-tooltip="Estatísticas" 
+                    onclick="abrirPainel('Estatísticas')">📊</button>
+
+            <button class="nav-btn" 
+                    data-tooltip="Configurações" 
+                    onclick="abrirPainel('Configurações')">⚙️</button>
+        </div>
+    </nav>
+
+    <div id="sub-janela-bateria" class="preview-box"></div>
+
+    <main id="painel-principal" class="painel-conteudo">
+        <div id="fechar-painel" onclick="fecharPainel()">×</div>
+        <div id="conteudo-dinamico">
+            </div>
+    </main>
+
     <main class="conteudo">
         </main>
+
     <script src="cabecalho/header.js"></script>
 </body>
 </html>

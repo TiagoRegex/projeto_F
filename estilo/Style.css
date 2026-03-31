@@ -1,176 +1,176 @@
-/* RESET GLOBAL */
+/* ================= RESET & CONFIGURAÇÕES GERAIS ================= */
+:root {
+    --primary-color: #c7dbe9;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --header-height: 45px;
+    --accent-color: #2ecc71;
+}
+
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #1e1e2f;
+    overflow-x: hidden;
+    color: white;
 }
 
 /* ================= HEADER / MENU ================= */
-
 .topo {
-  background-color: black;
-  width: 100%;
+    background-color: black;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  padding: 5px 10px;
-  height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 20px;
+    height: var(--header-height);
 }
 
 .header h1 {
-  margin: 0;
-  display: flex;
-  align-items: baseline;
-  color: white;
-  cursor: pointer;
+    margin-right: 40px;
+    display: flex;
+    align-items: baseline;
+    color: white;
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
-/* LOGO */
 .letra-X {
-  color: rgb(170, 219, 214);
-  font-size: 28px;
-  font-weight: bold;
+    color: rgb(170, 219, 214);
+    font-size: 28px;
+    font-weight: bold;
 }
 
 .letra-fly {
-  font-size: 22px;
-  margin-left: 2px;
+    font-size: 22px;
+    margin-left: 2px;
+    display: inline-block !important;
 }
 
-/* MENU */
 #menu-links {
-  display: flex;
-  margin-left: 20px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
+    display: flex;
+    gap: 20px;
 }
 
 #menu-links a {
-  color: white;
-  text-decoration: none;
-  margin-right: 20px;
-  font-size: 14px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
 }
 
 #menu-links a:hover {
-  text-decoration: underline;
+    color: var(--primary-color);
 }
 
-.header:hover #menu-links {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* ================= CONTEÚDO ================= */
-
+/* ================= PÁGINAS (FUNDO) ================= */
 .conteudo {
-  min-height: calc(100vh - 30px);
+    padding-top: var(--header-height);
+    min-height: 100vh;
 }
-
-/* ================= PÁGINAS ================= */
 
 /* INÍCIO */
 body.inicio {
-  background-image: url("../imagens/drone.0.webp");
-  background-size: cover;
-  background-position-y: 20px;
-  background-repeat: no-repeat;
+    background-image: url("../imagens/drone.0.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100vh;
 }
-/* Controlador */
+
+/* CONTROLADOR */
 body.Controlador {
-  background: rgb(225, 225, 225);
-  background-image: url("../imagens/controlo-removebg-preview.png");
-  background-size: 700px;
-  background-repeat:no-repeat;
-  background-position: center;
+    background: linear-gradient(rgba(240, 240, 240, 0.7), rgba(8, 8, 8, 0.7)), url("../imagens/favico.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    overflow: hidden;
 }
+
+body.Controlador .conteudo {
+    background-image: url("../imagens/controlador.png");
+    background-size: 600px; 
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(0 0 15px rgba(199, 219, 233, 0.3));
+    height: calc(100vh - var(--header-height)); 
+    width: 100%;
+}
+
 /* TAREFAS */
 body.Tarefas {
-  background: rgb(225, 225, 225);
-}
-/* SOBRE */
-body.Sobre {
-  background: rgb(225, 225, 225);
-}
-
-/*=====================Sobre================================*/
-
-:root {
-    --primary-color: #3498db;
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(rgba(28, 28, 28, 0.7), rgba(8, 8, 8, 0.7)), url("../imagens/favico.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-body {
-    background: linear-gradient(135deg, #1e1e2f, #2d2d44); /* Fundo escuro para destacar o vidro */
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-}
-
+/* ================= SIDEBAR ================= */
 .glass-sidebar {
     position: fixed;
-    right: 10px; /* Afastada da borda para parecer flutuante */
-    top: 40%;
-    transform: translateY(-40%);
-    width: 100px;
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px); /* Efeito de vidro jateado */
+    left: 50%; 
+    bottom: 30px; 
+    transform: translateX(-50%); 
+    
+    width: auto; 
+    min-width: 250px;
+    height: 70px;
+    
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
     border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 20px 0;
+    border-radius: 35px; 
+    
     display: flex;
-    flex-direction: column;
+    flex-direction: row; 
     align-items: center;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-}
-
-.logo-item img {
-    width: 40px;
-    filter: drop-shadow(0 0 5px var(--primary-color));
-    margin-bottom: 10px;
-}
-
-.separator {
-    width: 50%;
-    border: 0.5px solid var(--glass-border);
-    margin: 10px 0;
+    justify-content: space-around;
+    padding: 0 25px;
+    
+    box-shadow: 0 10px 32px 0 rgba(0, 0, 0, 0.6);
+    z-index: 900;
+    transition: all 0.3s ease;
 }
 
 .nav-btn {
     background: transparent;
     border: none;
-    font-size: 24px;
-    margin: 15px 0;
+    font-size: 28px; 
+    margin: 0 15px; 
     cursor: pointer;
     position: relative;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: 0.4s;
 }
 
-/* Efeito de Reação */
 .nav-btn:hover {
-    transform: scale(1.3);
+    transform: scale(1.2) translateY(-5px);
     text-shadow: 0 0 10px var(--primary-color);
 }
 
-/* Tooltip (A janelinha que aparece à esquerda) */
+/* Tooltips acima da barra */
 .nav-btn::before {
     content: attr(data-tooltip);
     position: absolute;
-    right: 80px;
-    top: 50%;
-    transform: translateY(-50%) scale(0.5);
+    bottom: 80px; 
+    left: 50%;
+    transform: translateX(-50%) scale(0.5);
     background: white;
     color: #333;
     padding: 8px 15px;
     border-radius: 8px;
     font-size: 14px;
-    white-space: nowrap;
     opacity: 0;
     pointer-events: none;
     transition: 0.3s;
@@ -178,146 +178,122 @@ body {
 
 .nav-btn:hover::before {
     opacity: 1;
-    transform: translateY(-50%) scale(1);
+    transform: translateX(-50%) scale(1);
 }
 
-/*  EXTRA  */
-
-@keyframes slideIn {
-    from { opacity: 0; transform: translateX(-20px); }
-    to { opacity: 1; transform: translateX(0); }
+/* ================= MAPAS ================= */
+body.Mapas {
+    background: radial-gradient(circle at center, #3a3a3a, #1a1a1a);
+    height: 100vh;
+    overflow: hidden; 
 }
 
-.conteudo-ativo {
-    animation: slideIn 0.5s ease forwards;
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - var(--header-height)); 
+    margin-top: var(--header-height);
 }
 
-/* EXTRA EXTRA*/
+.map-container {
+    width: 80vh; 
+    height: 80vh;
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 50%;
+    position: relative;
+    background: linear-gradient(145deg, #6e6e6e, #2a2a2a, #000);
+    padding: 5px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
 
-/* Sub-janela da Bateria (Preview) */
+.inner { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; position: relative; }
+
+#earth { width: 100%; height: 100%; object-fit: cover; transition: 2.5s; }
+
+#map {
+    width: 100%; height: 100%; display: none; position: absolute; top: 0; left: 0;
+    background-image: url("../imagens/mapa.jpg"); background-size: cover;
+    background-position: center;
+    opacity: 0; transition: 1s;
+}
+
+/* ================= TAREFAS & PAINÉIS ================= */
+.tarefas-container {
+    max-width: 600px; margin: 80px auto; padding: 30px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border-radius: 15px; border: 1px solid var(--glass-border);
+}
+
+.input-grupo { display: flex; gap: 10px; margin-bottom: 25px; }
+.input-grupo input { flex: 1; padding: 12px; border-radius: 8px; border: none; background: rgba(255,255,255,0.1); color: white; outline: none; }
+.input-grupo button { padding: 10px 20px; background: var(--primary-color); border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+
+.tarefa-item {
+    background: rgba(255,255,255,0.05); padding: 15px; margin-bottom: 12px;
+    border-radius: 10px; display: flex; justify-content: space-between; align-items: center;
+}
+
 .preview-box {
     position: fixed;
-    right: 100px;
-    top: 50%;
-    transform: translateY(-50%);
+    right: 30px;
+    bottom: 120px;
     background: white;
     padding: 15px;
     border-radius: 12px;
-    box-shadow: -10px 0 20px rgba(0,0,0,0.2);
-    display: none; /* Escondida */
-    width: 180px;
-    border-left: 5px solid #2ecc71; /* Verde bateria */
-    z-index: 100;
+    display: none;
+    width: 200px;
+    color: #333;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* Painel Principal (Abre no Clique) */
+/* ================= PAINEL QUE ABRE (HUD) ================= */
 .painel-conteudo {
     position: fixed;
     top: 0;
     left: 0;
-    width: calc(100% - 100px); /* Ocupa tudo menos a barra lateral */
+    width: 100%;
     height: 100vh;
-    background: #ffffff;
-    z-index: 50;
-    display: none; /* Escondido por padrão */
-    padding: 40px;
-    box-sizing: border-box;
+    background: rgba(86, 86, 88, 0.98); 
+    z-index: 2000; 
+    display: none; 
+    padding: 60px 40px;
+    color: white;
+    animation: fadeIn 0.3s ease-out;
 }
 
 #fechar-painel {
     position: absolute;
     top: 20px;
-    right: 20px;
-    font-size: 30px;
+    right: 30px;
+    font-size: 30px; 
     cursor: pointer;
+    color: var(--primary-color);
+    line-height: 1;
+    transition: transform 0.2s;
 }
 
-
-/* ---------------------------MAPAS----------------------------- */
-body.Mapas {
-  margin: 0;
-  background: #111;
+#fechar-painel:hover {
+    transform: scale(1.2);
+    color: white;
 }
 
-/* área abaixo do header */
-.main-content {
-  display: flex;
-  justify-content: center;
-
-  padding-top: 120px;
-
-  background: radial-gradient(circle at center, #3a3a3a, #1a1a1a);
-  min-height: 100vh;
+#conteudo-dinamico h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 10px;
 }
 
-/* círculo exterior (borda com gradiente) */
-.map-container {
-  width: 600px;
-  height: 600px;
-
-  border-radius: 50%;
-  overflow: hidden;
-
-  padding: 5px;
-
-  /* gradiente mais natural */
-  background: linear-gradient(
-    145deg,
-    #6e6e6e,
-    #2a2a2a 40%,
-    #000
-  );
-
-  /* profundidade exterior */
-  box-shadow: 
-    0 20px 60px rgba(0,0,0,0.6),
-    0 0 0 2px rgba(255,255,255,0.05);
-
-  box-sizing: border-box;
-
-  position: relative;
-}
-.map-container::before {
-  animation: brilho 6s linear infinite;
+#conteudo-dinamico p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 10px 0;
 }
 
-@keyframes brilho {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-/* conteúdo interno (onde fica o planeta) */
-.inner {
-  width: 100%;
-  height: 100%;
-
-  border-radius: 50%;
-  overflow: hidden;
-
-  background: rgb(0, 0, 0);
-
-  position: relative;
-
-  /* sombra interna mais natural */
-  box-shadow: inset 0 0 40px rgba(101, 100, 100, 0.6);
-}
-
-/* planeta */
-#earth {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  transition: transform 2s ease-in-out, opacity 1s;
-}
-
-/* mapa (para usar depois) */
-#map {
-  width: 100%;
-  height: 100%;
-  display: none;
-
-  position: absolute;
-  top: 0;
-  left: 0;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }

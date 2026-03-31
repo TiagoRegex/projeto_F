@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Início - XFly</title>
-<link rel="icon" href="../favicon/favicon.ico">
-<link rel="icon" href="../favicon/icon/favicon.ico">
-<link rel="icon" href="../favicon/favicon.ico">
-<link rel="icon" href="../favicon/favicon.png">
-<link rel="stylesheet" href="../estilo/Style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefas - XFly</title>
+    <link rel="icon" type="image/x-icon" href="../favicon/favicon.ico">
+    <link rel="stylesheet" href="../estilo/Style.css">
 </head>
 
 <body class="Tarefas">
 
-  <div id="header-container"></div>
+    <div id="header-container"></div>
 
-  <main class="conteudo"></main>
+    <main class="conteudo">
+        <div class="tarefas-container">
+            <h2>📋 Painel de Missões</h2>
+            
+            <p style="text-align: center; font-size: 14px; opacity: 0.8;">
+                Agende as próximas rotas e objetivos do seu drone.
+            </p>
 
-  <script src="../cabecalho/header.js"></script>
+            <div class="input-grupo">
+                <input type="text" id="nova-tarefa" placeholder="Ex: Mapear zona norte...">
+                <button onclick="adicionarTarefa()">Agendar</button>
+            </div>
+
+            <ul id="lista-tarefas">
+                <li class="tarefa-item">
+                    <span>Verificar níveis de bateria e rotores</span>
+                    <button class="btn-check" onclick="this.parentElement.remove()">✔</button>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <script src="../cabecalho/header.js"></script>
+
 </body>
 </html>
